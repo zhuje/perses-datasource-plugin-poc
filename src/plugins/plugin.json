@@ -1,0 +1,50 @@
+{
+  "kind": "PluginModule",
+  "metadata": {
+    "name": "Custom Perses Panels"
+  },
+  "spec": {
+    "plugins": [
+      {
+        "pluginType": "Panel",
+        "kind": "GenerateImageCanvas",
+        "display": {
+          "name": "Generate Image Canvas",
+          "description": "Perses panel plugin for inpainting with Stable Diffusion using using the Replicate API"
+        }
+      },
+      {
+        "pluginType": "Panel",
+        "kind": "ScatterChart",
+        "display": {
+          "name": "Scatterplot",
+          "description": ""
+        }
+      },
+      {
+        "pluginType": "TimeSeriesQuery",
+        "kind": "ImageQuery",
+        "display": {
+          "name": "Generate Image Query",
+          "description": ""
+        }
+      },
+      {
+        "pluginType": "Panel",
+        "kind": "TempoScatterChart",
+        "display": {
+          "name": "Tempo Scatterplot",
+          "description": ""
+        }
+      },
+      {
+        "pluginType": "Datasource",
+        "kind": "TempoDatasource",
+        "display": {
+          "name": "Tempo Datasource",
+          "description": ""
+        }
+      }
+    ]
+  }
+}

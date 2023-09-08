@@ -13,6 +13,12 @@ export function useDatasourceApi(): DatasourceStoreProviderProps["datasourceApi"
           proxyUrl: "",
         };
       }
+      if (selector.kind === "TempoDatasource") {
+        return {
+          resource: tempoDatasource,
+          proxyUrl: "",
+        }
+      }
       return undefined;
     },
     listDatasources: async (/*project, pluginKind*/) => {
@@ -48,3 +54,28 @@ const datasource: GlobalDatasource = {
     },
   },
 };
+
+const tempoDatasource: GlobalDatasource = {
+  kind: "GlobalDatasource",
+  metadata: {
+    name: "Tempo Demo",
+    created_at: "",
+    updated_at: "",
+    version: 0,
+  },
+  spec: {
+    default: true,
+    display: {
+      name: "Tempo Demo",
+    },
+    plugin: {
+      kind: "TempoDatasource",
+      spec: {
+        // must have a tempo instance running locally -- use docker-compose example : 
+        // https://github.com/grafana/tempo/blob/main/example/docker-compose/local/readme.md
+        direct_url: "http://localhost:3000/api/datasources/proxy/uid/tempo/",
+      },
+    },
+  },
+};
+

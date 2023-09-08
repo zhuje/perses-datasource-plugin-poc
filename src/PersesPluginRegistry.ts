@@ -6,6 +6,8 @@ import {
   PluginLoader,
   dynamicImportPluginLoader,
 } from "@perses-dev/plugin-system";
+import customPanels from './plugins/plugin.json';
+
 
 /**
  * A PluginLoader that includes all the "built-in" plugins that are bundled with Perses by default and additional custom plugins
@@ -18,5 +20,10 @@ export const bundledPluginLoader: PluginLoader = dynamicImportPluginLoader([
   {
     resource: panelsResource as PluginModuleResource,
     importPlugin: () => import("@perses-dev/panels-plugin"),
+  },
+  {
+    // custom plugins
+    resource: customPanels as PluginModuleResource,
+    importPlugin: () => import('./plugins'),
   },
 ]);

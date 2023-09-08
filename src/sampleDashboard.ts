@@ -126,7 +126,54 @@ export const sampleDashboard: DashboardResource = {
           ],
         },
       },
-    },
+      ScatterEx: {
+        kind: 'Panel',
+        spec: {
+          display: { name: 'Scatterplot Panel Example' },
+          plugin: {
+            kind: 'ScatterChart',
+            spec: {
+              query: {
+                kind: 'TimeSeriesQuery',
+                spec: {
+                  plugin: {
+                    kind: 'PrometheusTimeSeriesQuery',
+                    spec: {
+                      query:
+                        'avg without (cpu)(rate(node_cpu_seconds_total{job=~"node|alertmanager",instance="demo.do.prometheus.io:9100",mode=~"user|idle"}[30m]))',
+                    },
+                  },
+                },
+              },
+              unit: { kind: 'Decimal' },
+            },
+          },
+        },
+      },
+      TempoEx: {
+        kind: 'Panel',
+        spec: {
+          display: { name: 'Tempo Panel Example' },
+          plugin: {
+            kind: 'TempoScatterChart',
+            spec: {
+              query: {
+                kind: 'TempoTimeSeriesQuery',
+                spec: {
+                  plugin: {
+                    kind: 'TempoTimeSeriesQuery',
+                    spec: {
+                      query:
+                        '{}',
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+  },
     layouts: [
       {
         kind: "Grid",
@@ -158,6 +205,24 @@ export const sampleDashboard: DashboardResource = {
               height: 8,
               content: {
                 $ref: "#/spec/panels/StatEx",
+              },
+            },
+            {
+              x: 0,
+              y: 8,
+              width: 8,
+              height: 8,
+              content: {
+                $ref: "#/spec/panels/ScatterEx",
+              },
+            },
+            {
+              x: 8,
+              y: 8,
+              width: 8,
+              height: 8,
+              content: {
+                $ref: "#/spec/panels/TempoEx",
               },
             },
           ],
