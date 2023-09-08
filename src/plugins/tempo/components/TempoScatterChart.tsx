@@ -49,7 +49,7 @@ interface TempoQueryDefinition  extends TimeSeriesQueryDefinition {
  */
 export function TempoScatterChartPanel() {
 
-  
+  // JZ NOTE: can we reuse useTimeSeriesQuery for this?
   const { data, isLoading, error } = useTimeSeriesQuery(query);
 
   console.warn("TempoScatterChartPanel data, isloading, error : ", data, "\n", isLoading,  "\n", error);
@@ -72,6 +72,8 @@ export interface ScatterChartOptions {
  */
 export const TempoScatterChart: PanelPlugin<ScatterChartOptions> = {
   PanelComponent: TempoScatterChartPanel,
+  // JZ NOTE: we'll need to update this in @perse-dev/<
+  // supportedQueryTypes: TraceQL
   createInitialOptions: createInitialScatterChartOptions,
 };
 
