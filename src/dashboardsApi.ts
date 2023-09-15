@@ -28,6 +28,9 @@ export function useDatasourceApi(): DatasourceStoreProviderProps["datasourceApi"
       if (pluginKind === datasource.spec.plugin.kind) {
         return [datasource];
       }
+      if (pluginKind === tempoDatasource.spec.plugin.kind) {
+        return [tempoDatasource];
+      }
       return [];
     },
   };

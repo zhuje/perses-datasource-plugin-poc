@@ -64,6 +64,12 @@ const config = {
     devMiddleware: {
       writeToDisk: true,
     },
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000/api/datasources/proxy/uid/tempo/',
+        changeOrigin: true,
+      }
+    },
   },
   devtool: "source-map",
   optimization: {

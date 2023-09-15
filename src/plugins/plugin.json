@@ -38,6 +38,14 @@
         }
       },
       {
+        "pluginType": "TimeSeriesQuery", 
+        "kind": "TempoQuery",
+        "display": {
+          "name": "Tempo Query",
+          "description": ""
+        }
+      },
+      {
         "pluginType": "Datasource",
         "kind": "TempoDatasource",
         "display": {

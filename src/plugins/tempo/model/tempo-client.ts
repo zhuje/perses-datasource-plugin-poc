@@ -6,7 +6,7 @@ import { QueryResponse, SearchResponse, SearchResult } from "./types";
  * Create a search and query functions the Tempo client can perform. 
  */
 
-const TEMPO_ENDPOINT = 'http://localhost:3000/api/datasources/proxy/uid/tempo/';
+const TEMPO_ENDPOINT = 'http://localhost:3005';
 
 export const executeRequest = async <T>(url: string): Promise<T> => {
     console.log("fetching", url);

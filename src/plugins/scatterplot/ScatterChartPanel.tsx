@@ -14,6 +14,8 @@ export function ScatterChartPanel(props: ScatterChartPanelProps) {
     contentDimensions,
   } = props;
   const suggestedStepMs = useSuggestedStepMs(contentDimensions?.width) * 10; // temp calc for demo
+  
+  // useTimeSeriesQuery has been replaced by useDataQueries('TimeSeriesQuery')
   const { data, isLoading, error } = useTimeSeriesQuery(query, { suggestedStepMs });
 
   const scatterData = useMemo(() => {
